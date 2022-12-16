@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>672</width>
+    <height>235</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLineEdit" name="encryption">
+    <property name="geometry">
+     <rect>
+      <x>31</x>
+      <y>11</y>
+      <width>631</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_f">
+    <property name="geometry">
+     <rect>
+      <x>254</x>
+      <y>93</y>
+      <width>57</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>f</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_m">
+    <property name="geometry">
+     <rect>
+      <x>476</x>
+      <y>131</y>
+      <width>57</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>m</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_n">
+    <property name="geometry">
+     <rect>
+      <x>413</x>
+      <y>131</y>
+      <width>56</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>n</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_e">
+    <property name="geometry">
+     <rect>
+      <x>159</x>
+      <y>52</y>
+      <width>57</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>e</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_s">
+    <property name="geometry">
+     <rect>
+      <x>128</x>
+      <y>93</y>
+      <width>56</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>s</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_b">
+    <property name="geometry">
+     <rect>
+      <x>349</x>
+      <y>131</y>
+      <width>57</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>b</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_o">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>52</y>
+      <width>56</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>o</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_q">
+    <property name="geometry">
+     <rect>
+      <x>32</x>
+      <y>52</y>
+      <width>57</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>q</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_g">
+    <property name="geometry">
+     <rect>
+      <x>318</x>
+      <y>93</y>
+      <width>56</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>g</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_r">
+    <property name="geometry">
+     <rect>
+      <x>223</x>
+      <y>52</y>
+      <width>56</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>r</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_w">
+    <property name="geometry">
+     <rect>
+      <x>96</x>
+      <y>52</y>
+      <width>56</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>w</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_c">
+    <property name="geometry">
+     <rect>
+      <x>223</x>
+      <y>131</y>
+      <width>56</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>c</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_i">
+    <property name="geometry">
+     <rect>
+      <x>476</x>
+      <y>52</y>
+      <width>57</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>i</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_y">
+    <property name="geometry">
+     <rect>
+      <x>349</x>
+      <y>52</y>
+      <width>57</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>y</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_t">
+    <property name="geometry">
+     <rect>
+      <x>286</x>
+      <y>52</y>
+      <width>56</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>t</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_k">
+    <property name="geometry">
+     <rect>
+      <x>508</x>
+      <y>93</y>
+      <width>56</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>k</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_z">
+    <property name="geometry">
+     <rect>
+      <x>96</x>
+      <y>131</y>
+      <width>56</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>z</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_j">
+    <property name="geometry">
+     <rect>
+      <x>445</x>
+      <y>93</y>
+      <width>56</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>j</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_x">
+    <property name="geometry">
+     <rect>
+      <x>159</x>
+      <y>131</y>
+      <width>57</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>x</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_l">
+    <property name="geometry">
+     <rect>
+      <x>571</x>
+      <y>93</y>
+      <width>57</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>l</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_a">
+    <property name="geometry">
+     <rect>
+      <x>64</x>
+      <y>93</y>
+      <width>57</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>a</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_v">
+    <property name="geometry">
+     <rect>
+      <x>286</x>
+      <y>131</y>
+      <width>56</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>v</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_p">
+    <property name="geometry">
+     <rect>
+      <x>603</x>
+      <y>52</y>
+      <width>56</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>p</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_h">
+    <property name="geometry">
+     <rect>
+      <x>381</x>
+      <y>93</y>
+      <width>57</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>h</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_u">
+    <property name="geometry">
+     <rect>
+      <x>413</x>
+      <y>52</y>
+      <width>56</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>u</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btn_d">
+    <property name="geometry">
+     <rect>
+      <x>191</x>
+      <y>93</y>
+      <width>56</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>d</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">KeyBoard</string>
+    </attribute>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>672</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+ <buttongroups>
+  <buttongroup name="KeyBoard"/>
+ </buttongroups>
+</ui>
