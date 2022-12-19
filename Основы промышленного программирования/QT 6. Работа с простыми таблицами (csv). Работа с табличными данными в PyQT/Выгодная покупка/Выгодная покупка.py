@@ -8,6 +8,4 @@ with open('wares.csv', encoding="utf8") as csvfile:
     prises = list(prise_list.values())
     if map(lambda x: x > 1000, prises):
         print("error")
-    if min(prises) == 1000:
-        print(prise_list.get(1000))
 
