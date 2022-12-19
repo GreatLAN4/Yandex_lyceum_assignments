@@ -33,8 +33,12 @@ class Bill(QMainWindow):
              for n in range(len(self.prise_list))]
 
     def UpDate(self):
-        total = sum([int(self.tableWidget.item(i, 1).text()) * int(self.tableWidget.item(i, 2).text())
+        try:
+            total = sum([int(self.tableWidget.item(i, 1).text()) * int(self.tableWidget.item(i, 2).text())
                      for i in range(len(self.prise_list))])
+        except Exception:
+            total = "Error"
+
         self.bill.setText(str(total))
 
 
