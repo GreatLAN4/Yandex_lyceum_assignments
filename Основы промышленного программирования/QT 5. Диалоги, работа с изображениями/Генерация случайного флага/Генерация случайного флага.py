@@ -17,15 +17,11 @@ class RandomFlag(QMainWindow):
     def initUI(self):
         self.btn.clicked.connect(self.run)
 
-
-
     def run(self):
         self.amount, self.ok_pressed = QInputDialog.getInt(
             self, "Введите количество цветов", "Сколько цветов?",
             3, 1, 17, 1)
         self.Paint = True
-
-
 
     def paintEvent(self, event):
         if self.Paint:
@@ -33,7 +29,6 @@ class RandomFlag(QMainWindow):
             qp.begin(self)
             self.draw_flag(qp)
             qp.end()
-
 
     def draw_flag(self, qp):
         y = 30
@@ -43,7 +38,6 @@ class RandomFlag(QMainWindow):
             qp.setBrush(color)
             qp.drawRect(110, y, 120, 30)
             y += 30
-
 
 
 if __name__ == '__main__':
