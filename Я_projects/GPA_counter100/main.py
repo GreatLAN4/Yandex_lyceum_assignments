@@ -22,11 +22,6 @@ class Logic:
             return e
 
 
-
-
-
-
-
 class Final(QtWidgets.QWidget, row_Ui):
     def __init__(self, parent=None):
         super(Final, self).__init__(parent)
