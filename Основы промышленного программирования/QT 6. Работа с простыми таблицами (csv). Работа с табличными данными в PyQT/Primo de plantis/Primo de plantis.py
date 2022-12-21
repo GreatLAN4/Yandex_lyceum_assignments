@@ -1,28 +1,20 @@
-import csv
+from csv import writer, QUOTE_MINIMAL
 from sys import stdin
+plants = []
+for line in stdin:
 
-dict_keys = [
-    "nomen",
-    "definitio",
-    "pluma",
-    "Russian nomen",
-    "familia",
-    "Russian nomen familia",
-]
-plant_article = []
+    if '' == line.rstrip():
+        break
+    plants.append(line.split("\t"))
 
-for plant_info in stdin:
-    plant_page = {}
-    plant_info = plant_info.split("\t")
+with open('plantis.csv', 'w', encoding="utf8", newline='') as csvfile:
+    writer = writer(
+        csvfile, delimiter=';', quotechar='"', quoting=QUOTE_MINIMAL)
+    writer.writerow(["nomen", "definitio", "pluma", "Russian nomen", "familia", "Russian nomen familia"])
 
-    for num, key in enumerate(dict_keys):
-        plant_page[key] = plant_info[num]
-    plant_article.append(plant_page)
-
-with open('plantis.csv', "w", newline='') as csvfile:
-    writer = csv.DictWriter(
-        csvfile, fieldnames=list(plant_article[0].keys()), delimiter=';', quotechar=';')
-    writer.writeheader()
-
-    for d in plant_article:
-        writer.writerow(d)
+    for i in plants:
+        plants_zero = []
+        for j in i:
+            j = j.replace("\n", "")
+            plants_zero.append(j)
+        writer.writerow(plants_zero)
