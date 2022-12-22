@@ -40,6 +40,7 @@ class RandomFlag(QMainWindow):
             y += 30
 
 
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = RandomFlag()
