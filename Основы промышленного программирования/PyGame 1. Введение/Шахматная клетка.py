@@ -1,28 +1,29 @@
 import pygame
 
 
-
 def draw(screen):
     screen.fill((0, 0, 255))
     small_side = side / number
+    edge = (small_side, small_side)
     for i in range(1, number + 1):
         for j in range(1, number + 1):
-            if i % 2 != 0:
-                screen.fill(pygame.Color('black'), (side - small_side * j, side - small_side * i, small_side, small_side))
-            elif i % 2 == 0:
-                screen.fill(pygame.Color('white'), (side - small_side * j, side - small_side * i, small_side, small_side))
+            if j % 2 == 0:
+                if i % 2 != 0:
+                    screen.fill(pygame.Color('black'), (side - small_side * j, side - small_side * i, *edge))
+                elif i % 2 == 0:
+                    screen.fill(pygame.Color('white'), (side - small_side * j, side - small_side * i, *edge))
+            else:
+                if i % 2 != 0:
+                    screen.fill(pygame.Color('white'), (side - small_side * j, side - small_side * i, *edge))
+                elif i % 2 == 0:
+                    screen.fill(pygame.Color('black'), (side - small_side * j, side - small_side * i, *edge))
 
-    # left, top, width, height = [small_side] * 4
-    # for i in range(number):
-    #     left, top, width, height = [side - small_side] * 4
-    #     white_square = pygame.Rect(left, top, width, height)
-    #     screen.fill(pygame.Color('white'), white_square)
 
 if __name__ == '__main__':
     pygame.init()
     pygame.display.set_caption("Шахматная клетка")
 
-    side, number = "500", "10"# input(), input()
+    side, number = input(), input()
 
     if side.isdigit() and number.isdigit():
         size, side, number = (int(side), int(side)), int(side), int(number)
