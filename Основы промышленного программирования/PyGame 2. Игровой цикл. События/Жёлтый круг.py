@@ -1,7 +1,7 @@
 import pygame
 
 
-def draw(screen, flag, x=0, y=0, ):
+def draw(screen, flag, x=0, y=0):
     if flag:
         pygame.draw.circle(screen, "yellow", (x, y), radius)
     else:
