@@ -14,9 +14,8 @@ class MovingCircle:
         self.v = 100
         self.r = 10
 
-    def Render(self, screen, x, y):
-        pygame.draw.circle(screen, "yellow",
-                           (x, y), 10)
+    def Render(self, screen, pos):
+        pygame.draw.circle(screen, "white", (pos[0], pos[1]), 10)
 
     def Move(self, pos):
         self.x = pos[0] + self.v / FPS
@@ -27,16 +26,16 @@ def main():
     pygame.init()
     screen = pygame.display.set_mode(WINDOW_SIZE)
     movingcircle = MovingCircle()
-
+    screen.fill((0, 0, 0))
     running = True
     while running:
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
             if event.type == pygame.MOUSEBUTTONDOWN:
-                movingcircle.Render(screen, event.pos[0], event.pos[1])
+                movingcircle.Render(screen, event.pos)
 
-        screen.fill((0, 0, 0))
         pygame.display.flip()
     pygame.display.quit()
 
