@@ -1,44 +1,58 @@
-from random import randint
-
 import pygame
-
-WINDOW_SIZE = WINDOW_WIDTH, WINDOW_HEIGHT = 750, 750
-TIMER_EVENT = 30
-FPS = 120
+import math
+import random
 
 
-class MovingCircle:
+class Ball:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.radius = 10
+        self.color = pygame.Color("white")
+        self.speed = 100
+        self.direction = random.uniform(math.pi / 4, 3 * math.pi / 4)
 
-    def __init__(self):
-        global FPS
-        self.v = 100
-        self.r = 10
+    def draw(self, surface):
+        pygame.draw.circle(surface, self.color, (int(self.x), int(self.y)), self.radius)
 
-    def Render(self, screen, pos):
-        pygame.draw.circle(screen, "white", (pos[0], pos[1]), 10)
+    def update(self, dt, screen_width, screen_height):
+        dx = self.speed * -math.sin(self.direction) * dt
+        dy = self.speed * -math.sin(self.direction) * dt
+        self.x += dx
+        self.y += dy
 
-    def Move(self, pos):
-        self.x = pos[0] + self.v / FPS
-        self.y = pos[1] + self.v / FPS
-
-
-def main():
-    pygame.init()
-    screen = pygame.display.set_mode(WINDOW_SIZE)
-    movingcircle = MovingCircle()
-    screen.fill((0, 0, 0))
-    running = True
-    while running:
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                movingcircle.Render(screen, event.pos)
-
-        pygame.display.flip()
-    pygame.display.quit()
+        if self.x - self.radius <= 0 or self.x + self.radius >= screen_width:
+            self.direction = math.pi - self.direction
+        if self.y - self.radius <= 0 or self.y + self.radius >= screen_height:
+            self.direction = -self.direction
 
 
-if __name__ == "__main__":
-    main()
+pygame.init()
+
+screen_width, screen_height = 640, 480
+screen = pygame.display.set_mode((screen_width, screen_height))
+pygame.display.set_caption("Bouncing Balls")
+
+balls = []
+
+running = True
+clock = pygame.time.Clock()
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            ball = Ball(*event.pos)
+            balls.append(ball)
+
+    dt = clock.tick(60) / 1000
+    for ball in balls:
+        ball.update(dt, screen_width, screen_height)
+
+    screen.fill(pygame.Color("black"))
+    for ball in balls:
+        ball.draw(screen)
+
+    pygame.display.update()
+
+pygame.quit()
