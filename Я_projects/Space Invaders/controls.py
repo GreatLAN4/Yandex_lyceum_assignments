@@ -2,7 +2,7 @@ import pygame
 import sys
 from bullet import Bullet
 from invader import Invader
-
+from time import sleep
 
 # container py file for all events
 def events(screen, tank, bullet):
@@ -54,8 +54,18 @@ def UpdateBullets(invaders, bullets):
             bullets.remove(bullet)
     collections = pygame.sprite.groupcollide(bullets, invaders, True, True)
 
-def UpdateInvaders(invader):
-    invader.update()
+def TankWaste(stats, screen, tank, invaders, bullets):
+    stats.HitPoints -= 1
+    invaders.empty()
+    bullets.empty()
+    CreateArmy(screen, invaders)
+    tank.TankSpawn()
+    sleep(3)
+
+def UpdateInvaders(stats, screen, tank, invaders, bullets):
+    invaders.update()
+    if pygame.sprite.spritecollideany(tank, invaders):
+        TankWaste(stats, screen, tank, invaders, bullets)
 
 
 def CreateArmy(screen, invaders):
@@ -65,7 +75,7 @@ def CreateArmy(screen, invaders):
     n_inv_x = int((600 - 2 * inv_width) / inv_width)
     n_inv_y = int((640 - 50 - 2 * inv_height) / inv_height)
 
-    for row in range(n_inv_y - 1):
+    for row in range(n_inv_y - 7):
         for inv_n in range(n_inv_x):
             invader = Invader(screen)
             invader.x = inv_width + (inv_width * inv_n)

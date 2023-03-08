@@ -28,3 +28,7 @@ class Tank:
             self.center -= 1.5
 
         self.rect.centerx = self.center
+
+    def TankSpawn(self):
+        # Spawns tank in the middle of the screen in the bottom
+        self.center = self.screen_rect.centerx

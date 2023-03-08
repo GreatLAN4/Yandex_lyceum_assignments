@@ -3,6 +3,7 @@ import pygame
 import sys
 from pygame.sprite import Group
 from tank import Tank
+from stats import Stats
 
 
 def run():
@@ -14,13 +15,14 @@ def run():
     bullets = Group()
     invaders = Group()
     controls.CreateArmy(screen, invaders)
+    stats = Stats()
 
     while True:
         controls.events(screen, tank, bullets)
         tank.Update()
         controls.UpdateScreen(bg_color, screen, tank, invaders, bullets)
         controls.UpdateBullets(invaders, bullets)
-        controls.UpdateInvaders(invaders)
+        controls.UpdateInvaders(stats, screen, tank, invaders, bullets)
 
 
 run()
