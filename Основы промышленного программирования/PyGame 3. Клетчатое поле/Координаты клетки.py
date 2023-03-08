@@ -61,7 +61,6 @@ if __name__ == '__main__':
     size = WIDTH, HEIGHT = 500, 500
     screen = pygame.display.set_mode(size)
     board = Board(5, 7)
-    board.check()
 running = True
 while running:
     for event in pygame.event.get():
