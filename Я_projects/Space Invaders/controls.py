@@ -4,6 +4,7 @@ from bullet import Bullet
 from invader import Invader
 from time import sleep
 
+
 # container py file for all events
 def events(screen, tank, bullet):
     # event processing
@@ -36,9 +37,10 @@ def events(screen, tank, bullet):
                 tank.mleft = False
 
 
-def UpdateScreen(bg_color, screen, tank, invaders, bullets):
+def UpdateScreen(bg_color, screen, stats, score, tank, invaders, bullets):
     # Screen updating
     screen.fill(bg_color)
+    score.ShowScore()
     for bullet in bullets.sprites():
         bullet.DrawBullet()
     invaders.draw(screen)
@@ -47,25 +49,44 @@ def UpdateScreen(bg_color, screen, tank, invaders, bullets):
     pygame.display.flip()
 
 
-def UpdateBullets(invaders, bullets):
+def UpdateBullets(screen, invaders, bullets):
     bullets.update()
     for bullet in bullets.copy():
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
     collections = pygame.sprite.groupcollide(bullets, invaders, True, True)
+    if len(invaders) == 0:
+        bullets.empty()
+        CreateArmy(screen, invaders)
+
 
 def TankWaste(stats, screen, tank, invaders, bullets):
-    stats.HitPoints -= 1
-    invaders.empty()
-    bullets.empty()
-    CreateArmy(screen, invaders)
-    tank.TankSpawn()
-    sleep(3)
+    if stats.HitPoints > 0:
+        stats.HitPoints -= 1
+        invaders.empty()
+        bullets.empty()
+        CreateArmy(screen, invaders)
+        tank.TankSpawn()
+        sleep(1)
+    else:
+        stats.game_run = False
+        sys.exit()
+
 
 def UpdateInvaders(stats, screen, tank, invaders, bullets):
     invaders.update()
     if pygame.sprite.spritecollideany(tank, invaders):
         TankWaste(stats, screen, tank, invaders, bullets)
+    InvadersWin(stats, screen, tank, invaders, bullets)
+
+
+def InvadersWin(stats, screen, tank, invaders, bullets):
+    # checking are invaders reached the bottom or not
+    screen_rect = screen.get_rect()
+    for invader in invaders.sprites():
+        if invader.rect.bottom >= screen_rect.bottom:
+            TankWaste(stats, screen, tank, invaders, bullets)
+            break
 
 
 def CreateArmy(screen, invaders):

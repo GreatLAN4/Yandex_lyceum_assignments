@@ -5,7 +5,7 @@ class Bullet(pygame.sprite.Sprite):
         # adding bullet with tanks pos.
         super(Bullet, self).__init__()
         self.screen = screen
-        self.rect = pygame.Rect(0, 0, 2, 12)
+        self.rect = pygame.Rect(0, 0, 250, 12)
         self.color = "white"
         self.speed = 0.3
         self.rect.centerx = tank.rect.centerx
