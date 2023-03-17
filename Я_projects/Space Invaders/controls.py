@@ -6,11 +6,13 @@ from time import sleep
 
 
 # container py file for all events
-def events(screen, tank, bullet):
+def events(screen, tank, bullet, invaders, clock, FPS, TIER_EVENT):
     # event processing
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
+        if event.type == TIER_EVENT:
+            invaders.update()
         elif event.type == pygame.KEYDOWN:
 
             if event.key == pygame.K_d:
@@ -23,7 +25,7 @@ def events(screen, tank, bullet):
 
             elif event.key == pygame.K_SPACE:
                 # space
-                new_bullet = Bullet(screen, tank)
+                new_bullet = Bullet(screen, tank, FPS)
                 bullet.add(new_bullet)
 
         elif event.type == pygame.KEYUP:
@@ -55,6 +57,11 @@ def UpdateBullets(screen, invaders, bullets):
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
     collections = pygame.sprite.groupcollide(bullets, invaders, True, True)
+
+
+    # if len(invaders) == len(invaders) // 1.333:
+    #     pass
+
     if len(invaders) == 0:
         bullets.empty()
         CreateArmy(screen, invaders)
@@ -74,7 +81,6 @@ def TankWaste(stats, screen, tank, invaders, bullets):
 
 
 def UpdateInvaders(stats, screen, tank, invaders, bullets):
-    invaders.update()
     if pygame.sprite.spritecollideany(tank, invaders):
         TankWaste(stats, screen, tank, invaders, bullets)
     InvadersWin(stats, screen, tank, invaders, bullets)

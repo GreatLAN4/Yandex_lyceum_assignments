@@ -1,13 +1,13 @@
 import pygame
 class Bullet(pygame.sprite.Sprite):
 
-    def __init__(self, screen, tank):
+    def __init__(self, screen, tank, FPS):
         # adding bullet with tanks pos.
         super(Bullet, self).__init__()
         self.screen = screen
-        self.rect = pygame.Rect(0, 0, 250, 12)
+        self.rect = pygame.Rect(0, 0, 3, 12)
         self.color = "white"
-        self.speed = 0.3
+        self.speed = 45 / FPS
         self.rect.centerx = tank.rect.centerx
         self.rect.top = tank.rect.top
         self.y = float(self.rect.y)

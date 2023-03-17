@@ -4,8 +4,9 @@ import pygame
 # code for tank working
 class Tank:
 
-    def __init__(self, screen):
+    def __init__(self, screen, FPS):
         # tank initialization == game character
+        self.FPS = FPS
         self.screen = screen
         self.pic = pygame.image.load("data/tank.png")
         self.rect = self.pic.get_rect()
@@ -22,10 +23,10 @@ class Tank:
     def Update(self):
         # updating tank's position
         if self.mright and self.rect.right < self.screen_rect.right:
-            self.center += 1.5
+            self.center += (140 / self.FPS)
 
         elif self.mleft and self.rect.left > self.screen_rect.left:
-            self.center -= 1.5
+            self.center -= (140 / self.FPS)
 
         self.rect.centerx = self.center
 
